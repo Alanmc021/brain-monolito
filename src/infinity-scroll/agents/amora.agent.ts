@@ -18,7 +18,7 @@ export async function createGirlfriendAgent(profile: any, memory?: BufferMemory)
   }
 
   const llm = new ChatOpenAI({
-    modelName: 'gpt-4',
+    modelName: 'gpt-3.5-turbo',
     temperature: profile.ai_settings?.temperature ?? 0.7,
     openAIApiKey: process.env.OPENAI_API_KEY,
   });
@@ -42,7 +42,7 @@ export async function createGirlfriendAgent(profile: any, memory?: BufferMemory)
   const executor = new AgentExecutor({
     agent,
     tools,
-    verbose: true,
+    // verbose: true, Exibe todos os traces da LLM 
     memory,
   });
 
