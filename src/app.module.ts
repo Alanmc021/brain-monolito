@@ -5,6 +5,8 @@ import { ChatController } from './infinity-scroll/agents/controllers/chat.contro
 import { MongooseModule } from '@nestjs/mongoose';
 import { AmoraMemorySchema } from './infinity-scroll/agents/schema/amora-memory.model';
 import { UserSchema } from './infinity-scroll/agents/schema/UserSchema';
+import { authController } from './infinity-scroll/agents/controllers/auth.controller';
+import { MongoUserService } from './infinity-scroll/agents/services/mongo.user.service';
 // import { MemoryModule } from '@app/memory';
 
 @Module({
@@ -24,8 +26,8 @@ import { UserSchema } from './infinity-scroll/agents/schema/UserSchema';
       { name: 'User', schema: UserSchema },
     ]),
   ],
-  controllers: [ChatController],
-  providers: [ChatService],
+  controllers: [ChatController , authController],
+  providers: [ChatService , MongoUserService],
 })
 export class AppModule {}
 // })
