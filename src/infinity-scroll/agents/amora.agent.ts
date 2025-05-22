@@ -10,6 +10,7 @@ import {
 } from '@langchain/core/prompts';
 import { ImageTool } from './tools/image.tool';
 import { CombatTool } from './tools/combat.toos';
+import { loadCharacterTool } from './tools/load-character'
 import { BufferMemory } from 'langchain/memory';
 
 export async function createGirlfriendAgent(profile: any, memory?: BufferMemory) {
@@ -23,7 +24,7 @@ export async function createGirlfriendAgent(profile: any, memory?: BufferMemory)
     openAIApiKey: process.env.OPENAI_API_KEY,
   });
 
-  const tools = [new ImageTool(), new CombatTool()];
+  const tools = [new ImageTool(), new CombatTool(), loadCharacterTool ];
   const systemPrompt = profile.ai_settings?.systemPrompt ?? "Você é uma namorada virtual carinhosa, prestativa e divertida.";
 
   const prompt = ChatPromptTemplate.fromMessages([

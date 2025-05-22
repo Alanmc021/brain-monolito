@@ -57,7 +57,7 @@ let combatState: CombatState | null = null;
 
 export class CombatTool extends Tool {
   name = 'simple-combat';
-  description = `
+  description = ` 
 Inicia ou continua um combate baseado em turnos. Input esperado:
 - "iniciar" para começar o combate.
 - "1" (Atacar), "2" (Fugir), "3" (Magia), ou "4" (Defender) para ações do jogador.
